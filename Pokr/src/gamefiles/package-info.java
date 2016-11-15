@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author reini
- *
- */
-package gamefiles;
