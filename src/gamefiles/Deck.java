@@ -1,18 +1,23 @@
 package gamefiles;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import gamefiles.Card.Suit;
+import gamefiles.Card.Value;
 
 public class Deck {
 
 	List<Card> deck = new ArrayList<Card>();
-	Card[] cards;
 	
 	public Deck() {
-		cards = new Card[52];
-		deck = Arrays.asList(cards);
+		for (int i = 0; i < Suit.values().length; i++) {
+			for (int j = 0; j < Value.values().length; j++) {
+				Card card = new Card(Suit.values()[i], Value.values()[j]);
+				deck.add(card);
+			}
+		}
 		shuffle();
 	}
 	
@@ -22,18 +27,18 @@ public class Deck {
 	
 	public void reset() {
 		deck.clear();
-		deck = Arrays.asList(cards);
+		for (int i = 0; i < Suit.values().length; i++) {
+			for (int j = 0; j < Value.values().length; j++) {
+				Card card = new Card(Suit.values()[i], Value.values()[j]);
+				deck.add(card);
+			}
+		}
 		shuffle();
 	}
 	
 	public Card dealCard() {
-		Card card = deck.get((int) Math.random() * deck.size());
-		deck.remove(card);
+		Card card = deck.get(0);
+		deck.remove(0);
 		return card;
-	}
-	
-	public static void main(String[] args) {
-		Deck deck = new Deck();
-		System.out.println(deck.deck);
 	}
 }
