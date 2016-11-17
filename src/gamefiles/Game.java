@@ -23,7 +23,7 @@ public class Game {
 		boolean difficulty = false;
 		System.out.println("What kind of poker player are you?");
 		while (difficulty==false) {
-			System.out.println("Please choose: Beginner, Adept,Professional, Legend");
+			System.out.println("Please choose: Beginner, Adept, Professional, Legend");
 			String input = this.input.nextLine().toLowerCase();
 			switch (input){
 			case "beginner": 
