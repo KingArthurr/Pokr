@@ -11,7 +11,12 @@ public class PokerHand extends Hand{
 	
 	private ArrayList<ArrayList<Card>> res;
 	
-	public ArrayList<ArrayList<Card>> getHandCombinations(){
+	/*
+	 * Plan of Attack
+	 * =========================
+	 * 
+	 */
+	public ArrayList<ArrayList<Card>> getHandCombinations(Hand hand, ArrayList<Card> deck){
 		ArrayList<ArrayList<Card>> res = new ArrayList<ArrayList<Card>>();
 		//TODO: write implementation
 		return res;
