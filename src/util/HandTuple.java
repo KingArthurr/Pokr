@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import gamefiles.Card;
 
 public class HandTuple<set, rank> {
-	public final ArrayList<Card> set;
-	public final int rank;
+	public ArrayList<Card> set;
+	public int rank;
 	
 	public HandTuple(ArrayList<Card> set, int rank){
 		this.set = set;
@@ -19,5 +19,9 @@ public class HandTuple<set, rank> {
 	
 	public int rank(){
 		return rank;
+	}
+	
+	public void setRank(int newRank){
+		this.rank = newRank;
 	}
 }

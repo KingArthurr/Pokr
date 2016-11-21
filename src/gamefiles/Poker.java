@@ -1,31 +1,109 @@
 package gamefiles;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import players.Hand;
+import players.User;
 import util.HandTuple;
 
 // Shouldn't this be in player since it's player specific?
 
 public class Poker {
 
-	private HandTuple<ArrayList<Card>, Integer> varName;
-	private ArrayList<Card> varName2;
+	private HandTuple<ArrayList<Card>, Integer> result;
+	private static final int LOWEST_RANK = 9;
 	
-	
-	public ArrayList<Card> findSet(Hand hand, Deck deck){
-		// TODO: write implementation
-		return varName2;
-	}
-	
-	//TODO: use correct deck var
-	public HandTuple<ArrayList<Card>, Integer> findRank(ArrayList<Card> varName2, Deck deck){
-		
-		
-		
-		return varName;
+	public HandTuple<ArrayList<Card>, Integer> findRank(ArrayList<Card> set){
+		result.setRank(LOWEST_RANK);
+		if(setSameSuit(set)){
+			if(setSequential(set)){
+				result.setRank(1);
+				return result;
+			}
+			result.setRank(4);
+			return result;
+		}
+		else if(setSequential(set)){
+			result.setRank(5);
+			return result;
+		}
+		else if(pair(set)){
+			if(triplet(set)){
+				if(quad(set)){
+					result.setRank(2);
+					return result;
+				}
+				else if(fullHouse(set)){
+					result.setRank(3);
+					return result;
+				}
+				result.setRank(6);
+				return result;
+			}
+			else if(fullHouse(set)){
+				result.setRank(3);
+				return result;
+			}
+			else if(dualPair(set)){
+				result.setRank(7);
+				return result;
+			}
+			result.setRank(8);
+			return result;
+		}
+		return result;
 	}
 
+	private boolean dualPair(ArrayList<Card> set2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private boolean fullHouse(ArrayList<Card> set2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Boolean setSameSuit(ArrayList<Card> set){
+		Boolean res = false;
+		// TODO: write implementation
+		if(set.get(0).getSuit() == set.get(1).getSuit()){
+			res = true;
+		}
+		return res;
+	}
+	
+	public Boolean setSequential(ArrayList<Card> set){
+		Boolean res = false;
+		// TODO: write implementation
+		return res;
+	}
+	
+	public Boolean pair(ArrayList<Card> set){
+		Boolean res = false;
+		// TODO: write implementation
+		return res;
+	}
+	
+	public Boolean triplet(ArrayList<Card> set){
+		Boolean res = false;
+		// TODO: write implementation
+		return res;
+	}
+	
+	public Boolean quad(ArrayList<Card> set){
+		Boolean res = false;
+		// TODO: write implementation
+		return res;
+	}
+	
+	
+	
+	public User tieResolution(HashMap<User, ArrayList<Card>> hands){
+		
+		User user = new User("Steen");
+		return user;
+	}
 }
 
 
