@@ -45,7 +45,7 @@ public class Poker {
  * 
  * 
  * Rank:    ||  				  Cards:						||				tie resolution				||		Hooman name
- * =========================================================================================================||===================
+ * ==============================================================================================================================
  * 	1		||		5 sequential cards of the same suit			||		Highest card of the sequence		||	Straight flush
  *  2		||		4 same cards								||		Ranked first by set then by kicker	||  Four of a kind
  *  3		||		3 same cards with 2 different same cards	||		Ranked by triplet then by pair		||	Full house
