@@ -83,7 +83,10 @@ public class Poker {
 		Boolean res = false;
 		for(int i = 0; i < set.size()-2; i++){
 			if(set.get(i).getValue().value == (set.get(i+1).getValue().value-1)) {
-				
+				res = true;
+			}
+			else{
+				return false;
 			}
 		}
 		return res;
