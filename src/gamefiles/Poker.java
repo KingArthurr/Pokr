@@ -82,7 +82,7 @@ public class Poker {
 	public Boolean setSequential(ArrayList<Card> set){
 		Boolean res = false;
 		for(int i = 0; i < set.size()-2; i++){
-			if(set.get(i).getValue() == (set.get(i+1).getValue()-1)){
+			if(set.get(i).getValue().value == (set.get(i+1).getValue().value-1)) {
 				
 			}
 		}
