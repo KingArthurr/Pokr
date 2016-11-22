@@ -17,7 +17,7 @@ public class HandTuple<set, rank> {
 		return set;
 	}
 	
-	public int rank(){
+	public int showRank(){
 		return rank;
 	}
 	

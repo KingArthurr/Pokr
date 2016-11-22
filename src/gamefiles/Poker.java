@@ -14,6 +14,7 @@ public class Poker {
 	private static final int LOWEST_RANK = 9;
 	
 	public HandTuple<ArrayList<Card>, Integer> findRank(ArrayList<Card> set){
+		//Sort set before ranking
 		result.setRank(LOWEST_RANK);
 		if(setSameSuit(set)){
 			if(setSequential(set)){
@@ -67,33 +68,57 @@ public class Poker {
 	public Boolean setSameSuit(ArrayList<Card> set){
 		Boolean res = false;
 		// TODO: write implementation
-		if(set.get(0).getSuit() == set.get(1).getSuit()){
-			res = true;
+		for(int i = 1; i < set.size()-1; i++){
+			if(set.get(0).getSuit() == set.get(1).getSuit()){
+				res = true;
+			}
+			else{
+				return false;
+			}
 		}
 		return res;
 	}
 	
 	public Boolean setSequential(ArrayList<Card> set){
 		Boolean res = false;
-		// TODO: write implementation
+		for(int i = 0; i < set.size()-2; i++){
+			if(set.get(i).getValue() == (set.get(i+1).getValue()-1)){
+				
+			}
+		}
 		return res;
 	}
 	
 	public Boolean pair(ArrayList<Card> set){
 		Boolean res = false;
-		// TODO: write implementation
+		for(int i = 0; i < set.size() - 1; i++)
+			for(int j = 1; j < set.size() - 1; j++){
+				if(set.get(i).getValue()==set.get(j).getValue()){
+					return true;
+				}
+			}
 		return res;
 	}
 	
 	public Boolean triplet(ArrayList<Card> set){
 		Boolean res = false;
-		// TODO: write implementation
+		for(int i = 0; i < set.size() - 1; i++)
+			for(int j = 1; j < set.size() - 2; j++){
+				if(set.get(i).getValue()==set.get(j).getValue() && set.get(i).getValue() == set.get(j+1).getValue()){
+					return true;
+				}
+			}
 		return res;
 	}
 	
 	public Boolean quad(ArrayList<Card> set){
 		Boolean res = false;
-		// TODO: write implementation
+		for(int i = 0; i < set.size() - 1; i++)
+			for(int j = 1; j < set.size() - 3; j++){
+				if(set.get(i).getValue()==set.get(j).getValue() && set.get(i).getValue() == set.get(j+1).getValue() && set.get(i).getValue() == set.get(j+2).getValue()){
+					return true;
+				}
+			}
 		return res;
 	}
 	
