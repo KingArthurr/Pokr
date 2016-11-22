@@ -47,5 +47,5 @@ public class Card {
     public String toString() {
     	return "[" + suit.name() + "," + value.name() + "]";
     }
-
+    
 }
