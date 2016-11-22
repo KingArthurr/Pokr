@@ -67,9 +67,8 @@ public class Poker {
 
 	public Boolean setSameSuit(ArrayList<Card> set){
 		Boolean res = false;
-		// TODO: write implementation
 		for(int i = 1; i < set.size()-1; i++){
-			if(set.get(0).getSuit() == set.get(1).getSuit()){
+			if(set.get(0).getSuit() == set.get(i).getSuit()){
 				res = true;
 			}
 			else{
