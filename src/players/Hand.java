@@ -41,8 +41,8 @@ public class Hand {
 		}
 	}
 	
-	public List<Card> handCopy(){
-		List<Card> copy = new ArrayList<Card>(hand);
+	public ArrayList<Card> handCopy(){
+		ArrayList<Card> copy = new ArrayList<Card>(hand);
 		return copy;
 	}
 	
