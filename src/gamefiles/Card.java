@@ -1,22 +1,6 @@
 package gamefiles;
 
-//TODO: remove the suppressor
-@SuppressWarnings("unused")
 public class Card {
-	public Value value;
-	public Suit suit;
-	
-	// Char codes for the 4 suits
-	public final static char SPADES = 'S';       
-	public final static char HEARTS = 'H';
-	public final static char DIAMONDS = 'D';
-	public final static char CLUBS = 'C';
-    
-    // Convenient arrays for translations
-	private static final char[] SUIT_CODES = {'S', 'H', 'D', 'C'};
-    private static final String[] SUIT_STRINGS = {"Spades", "Hearts", "Diamonds", "Clubs"};
-    private static final String[] RANK_STRINGS = {"2", "3", "4", "5", "6", "7",
-    	    "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     
     public enum Suit {
     	SPADES(1), HEARTS(2), DIAMONDS(3), CLUBS(4); 
@@ -36,6 +20,8 @@ public class Card {
     	}
     }
     
+	public Value value;
+	public Suit suit;
     
     public Card(Suit suit, Value value){
     	this.value = value;
@@ -48,6 +34,10 @@ public class Card {
     
     public Value getValue(){
     	return value;
+    }
+
+    public String toString() {
+    	return "[" + suit.name() + "," + value.name() + "]";
     }
 
 }
