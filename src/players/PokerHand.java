@@ -102,14 +102,31 @@ public class PokerHand extends Hand{
 		return result;
 	}
 
-	private boolean dualPair(ArrayList<Card> set2) {
-		// TODO Auto-generated method stub
-		return false;
+	private boolean dualPair(ArrayList<Card> set) {
+		Boolean res = false;
+		if(pair(set)){
+			for(int i = 2; i < set.size() - 1; i++)
+				for(int j = 3; j < set.size() - 1; j++){
+					if(set.get(i).getValue()==set.get(j).getValue()){
+						return true;
+					}
+				}
+			}
+		return res;
 	}
 
-	private boolean fullHouse(ArrayList<Card> set2) {
-		// TODO Auto-generated method stub
-		return false;
+	private boolean fullHouse(ArrayList<Card> set) {
+		Boolean res = false;
+		if(pair(set)){
+			for(int i = 2; i < set.size()-1; i++){
+				for(int j = 3; i < set.size()-1; j++){
+					if(set.get(i).getValue()==set.get(j).getValue() && set.get(i).getValue() == set.get(j+1).getValue()){
+						return true;
+					}
+				}
+			}
+		}
+		return res;
 	}
 
 	public Boolean setSameSuit(ArrayList<Card> set){
@@ -171,14 +188,7 @@ public class PokerHand extends Hand{
 			}
 		return res;
 	}
-	
-	
-	
-	public User tieResolution(HashMap<User, ArrayList<Card>> hands){
-		//TODO
-		User user = new User("Steen");
-		return user;
-	}
+
 }
 
 
