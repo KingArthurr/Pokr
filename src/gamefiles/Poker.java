@@ -9,6 +9,33 @@ import util.HandTuple;
 // Shouldn't this be in player since it's player specific?
 
 public class Poker {	
+	
+	ArrayList<User> users;	
+	ArrayList<Card> communitycards;
+	Deck deck;
+	
+	public Poker() {
+		users = new ArrayList<User>();
+		deck = new Deck();
+		startGame();
+	}
+	
+	public void startGame() {
+		
+	}
+	
+	public void dealCards() {
+		users.forEach(c -> {
+			c.giveCard(deck.dealCard()); 
+			c.giveCard(deck.dealCard());
+			});
+	}
+	
+	public void getCommunityCards(int amount) {
+		for (int i = 0 ; i < amount; i++ ) {
+			communitycards.add(deck.dealCard());
+		}
+	}
 
 	public User tieResolution(HashMap<User, HandTuple<ArrayList<Card>, Integer>> hands){
 		ArrayList<User> users = new ArrayList<User>(hands.keySet());
@@ -36,12 +63,10 @@ public class Poker {
 				
 			case(9):		
 		}
-		
-		
-		
-		
-		
 		User user = new User("Steen");
 		return user;
 	}
+
+	
+
 }
