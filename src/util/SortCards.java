@@ -54,4 +54,14 @@ public class SortCards {
 		   return hand;
 	   }
 	   
+	   //Sorts in increasing order
+	   public static ArrayList<Integer> sortByValueInt(ArrayList<Integer> list){
+		   Collections.sort(list, new Comparator<Integer>() {
+			   public int compare(Integer o1, Integer o2) {
+				   return Integer.compare(o1, o2);
+			   }
+		   });
+		   return list;
+	   }
+	   
 }

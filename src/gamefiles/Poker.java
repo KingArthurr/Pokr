@@ -3,8 +3,11 @@ package gamefiles;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//import players.Hand;
 import players.User;
 import util.HandTuple;
+import util.RemoveDup;
+import util.SortCards;
 
 // Shouldn't this be in player since it's player specific?
 
@@ -37,27 +40,52 @@ public class Poker {
 		}
 	}
 
-	public User tieResolution(HashMap<User, HandTuple<ArrayList<Card>, Integer>> hands){
+	public ArrayList<User> tieResolution(HashMap<User, HandTuple<ArrayList<Card>, Integer>> hands){
 		//Split the hashmap so we can work with it
 		// We'll compare the hands and then ask which key fits the hand (find user by hand)
 		ArrayList<User> usersTie = new ArrayList<User>(hands.keySet());
 		ArrayList<HandTuple<ArrayList<Card>, Integer>> hand = new ArrayList<HandTuple<ArrayList<Card>, Integer>>(hands.values());
+		ArrayList<User> winners = new ArrayList<User>();
 		int highCardVal;
+		ArrayList<Integer> highCardVals = new ArrayList<Integer>();
+		int kicker;
 		if(hands.keySet().size() == 1){
-			return usersTie.get(0);
+			winners.add(usersTie.get(0));
+			return winners;
 		}
+		
+		
+		
 		int rank = hands.get(0).showRank();
 		switch(rank){
 			case(1):
+				//Rank 1 is straight flush, so we check based on high card
 				highCardVal = hand.get(0).showSet().get(4).getValue().getValueInt();
 				for(int i = 1; i < hand.size() - 1; i++){
 					if(hand.get(i-1).showSet().get(4).getValue().getValueInt() < hand.get(i).showSet().get(4).getValue().getValueInt()){
 						highCardVal = hand.get(i).showSet().get(4).getValue().getValueInt();
 					}
-				
+				}
+				for(int j = 0; j < hand.size() - 1; j++){
+					if(hands.get(usersTie.get(j)).showSet().get(0).getValue().getValueInt()==(highCardVal)){
+						winners.add(usersTie.get(j));
+					}
 				}
 			case(2):
-				
+				//Rank 2 is a four of kind which is ranked first by it's set then by the kicker
+				//Hand will look like this: <four of a kind>,<kicker> or <kicker>,<four of a kind>
+				//Construct a list of Four of a kinds
+				for(int i = 1; i < hand.size(); i++){
+					if(hand.get(1).showSet().get(0)==hand.get(1).showSet().get(1)){
+						highCardVals.add(hand.get(1).showSet().get(0).getValue().getValueInt());
+					}
+					else{
+						highCardVals.add(hand.get(0).showSet().get(1).getValue().getValueInt());
+					}
+				}
+				SortCards.sortByValueInt(highCardVals);
+				//and now find the winner between those cards
+			
 			case(3):
 				
 			case(4):
@@ -72,10 +100,15 @@ public class Poker {
 				
 			case(9):		
 		}
-		User user = new User("Steen");
-		return user;
+		for(int i = 0; i<hand.size()-2; i++){
+			for(int j = 1; j< hand.size()-1; j++){
+				if(hand.get(i)==hand.get(j)){
+					winners.add(usersTie.get(i));
+					winners.add(usersTie.get(j));
+				}
+			}
+		}
+		RemoveDup.removeDupsUser(winners);
+		return winners;
 	}
-
-	
-
 }
