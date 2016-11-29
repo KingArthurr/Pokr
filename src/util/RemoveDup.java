@@ -28,4 +28,13 @@ public class RemoveDup {
 	    list.addAll(hs);
 	    return list;
 	}
+	
+	public static Boolean containsDups(ArrayList<Integer> list){
+		for(int i = 1; i< list.size()-1; i++){
+			if(list.get(i-1)==list.get(i)){
+				return true;
+			}
+		}
+		return false;
+	}
 }
