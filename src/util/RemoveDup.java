@@ -13,7 +13,7 @@ public class RemoveDup {
 		
 	}
 	
-	public static ArrayList<ArrayList<Card>> removeDups(ArrayList<ArrayList<Card>> list) {
+	public static ArrayList<ArrayList<Card>> removeDupsArray(ArrayList<ArrayList<Card>> list) {
 	    Set<ArrayList<Card>> hs = new HashSet<>();
 	    hs.addAll(list);
 	    list.clear();
@@ -21,8 +21,17 @@ public class RemoveDup {
 	    return list;
 	}
 	
+
 	public static ArrayList<User> removeDupsUser(ArrayList<User> list){
 		Set<User> hs = new HashSet<>();
+		hs.addAll(list);
+		list.clear();
+		list.addAll(hs);
+		return list;
+	}
+
+	public static ArrayList<Card> removeDupsCard(ArrayList<Card> list) {
+		Set<Card> hs = new HashSet<>();
 	    hs.addAll(list);
 	    list.clear();
 	    list.addAll(hs);

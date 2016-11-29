@@ -56,7 +56,7 @@ public class PokerHand extends Hand{
 	    for (ArrayList<Card> r : result) {   
 			  result2.add(SortCards.sortByValue(r));
 	    }
-	    result = RemoveDup.removeDups(result2);
+	    result = RemoveDup.removeDupsArray(result2);
 	    return result;
 	  }
 	

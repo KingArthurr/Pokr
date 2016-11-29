@@ -2,14 +2,13 @@ package gamefiles;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import gamefiles.Card.Suit;
 import gamefiles.Card.Value;
 
 public class Deck {
 
-	List<Card> deck = new ArrayList<Card>();
+	private ArrayList<Card> deck = new ArrayList<Card>();
 	
 	public Deck() {
 		for (int i = 0; i < Suit.values().length; i++) {
@@ -37,8 +36,15 @@ public class Deck {
 	}
 	
 	public Card dealCard() {
-		Card card = deck.get(0);
-		deck.remove(0);
+		if (deck.isEmpty()) {
+			reset();
+		}
+		Card card = deck.get(deck.size()-1);
+		deck.remove(deck.size()-1);
 		return card;
+	}
+
+	public ArrayList<Card> getDeck() {
+		return deck;
 	}
 }
