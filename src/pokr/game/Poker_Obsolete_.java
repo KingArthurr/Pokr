@@ -1,24 +1,24 @@
-package gamefiles;
+package pokr.game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//import players.Hand;
-import players.User;
-import util.HandTuple;
-import util.RemoveDup;
-import util.SortCards;
+import pokr.player.HumanPlayer;
+import pokr.util.HandTuple;
+import pokr.util.RemoveDup;
+import pokr.util.SortCards;
 
 // Shouldn't this be in player since it's player specific?
+//TODO redundant class?
 
-public class Poker {	
+public class Poker_Obsolete_ {	
 	
-	ArrayList<User> users;	
+	ArrayList<HumanPlayer> users;	
 	ArrayList<Card> communitycards;
 	Deck deck;
 	
-	public Poker() {
-		users = new ArrayList<User>();
+	public Poker_Obsolete_() {
+		users = new ArrayList<HumanPlayer>();
 		deck = new Deck();
 		startGame();
 	}
@@ -40,12 +40,12 @@ public class Poker {
 		}
 	}
 
-	public ArrayList<User> tieResolution(HashMap<User, HandTuple<ArrayList<Card>, Integer>> hands){
+	public ArrayList<HumanPlayer> tieResolution(HashMap<HumanPlayer, HandTuple<ArrayList<Card>, Integer>> hands){
 		//Split the hashmap so we can work with it
 		// We'll compare the hands and then ask which key fits the hand (find user by hand)
-		ArrayList<User> usersTie = new ArrayList<User>(hands.keySet());
+		ArrayList<HumanPlayer> usersTie = new ArrayList<HumanPlayer>(hands.keySet());
 		ArrayList<HandTuple<ArrayList<Card>, Integer>> hand = new ArrayList<HandTuple<ArrayList<Card>, Integer>>(hands.values());
-		ArrayList<User> winners = new ArrayList<User>();
+		ArrayList<HumanPlayer> winners = new ArrayList<HumanPlayer>();
 		int highCardVal;
 		ArrayList<Integer> highCardVals = new ArrayList<Integer>();
 		int kicker;

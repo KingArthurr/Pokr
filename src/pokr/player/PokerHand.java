@@ -1,4 +1,4 @@
-package players;
+package pokr.player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,11 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import gamefiles.Card;
-import gamefiles.Deck;
-import util.SortCards;
-import util.HandTuple;
-import util.RemoveDup;
+import pokr.game.Card;
+import pokr.game.Deck;
+import pokr.util.SortCards;
+import pokr.util.HandTuple;
+import pokr.util.RemoveDup;
 
 //TODO: remove warning suppressor
 @SuppressWarnings("unused")

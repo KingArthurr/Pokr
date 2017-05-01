@@ -1,4 +1,4 @@
-package gamefiles;
+package pokr.game;
 
 public class Card {
     

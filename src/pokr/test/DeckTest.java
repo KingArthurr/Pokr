@@ -1,12 +1,12 @@
-package tests;
+package pokr.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import gamefiles.Deck;
-import util.RemoveDup;
+import pokr.game.Deck;
+import pokr.util.RemoveDup;
 
 public class DeckTest {
 

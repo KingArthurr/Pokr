@@ -1,11 +1,11 @@
-package util;
+package pokr.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import gamefiles.Card;
-import players.User;
+import pokr.game.Card;
+import pokr.player.HumanPlayer;
 
 public class RemoveDup {
 
@@ -22,8 +22,8 @@ public class RemoveDup {
 	}
 	
 
-	public static ArrayList<User> removeDupsUser(ArrayList<User> list){
-		Set<User> hs = new HashSet<>();
+	public static ArrayList<HumanPlayer> removeDupsUser(ArrayList<HumanPlayer> list){
+		Set<HumanPlayer> hs = new HashSet<>();
 		hs.addAll(list);
 		list.clear();
 		list.addAll(hs);

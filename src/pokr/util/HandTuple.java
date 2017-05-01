@@ -1,8 +1,8 @@
-package util;
+package pokr.util;
 
 import java.util.ArrayList;
 
-import gamefiles.Card;
+import pokr.game.Card;
 
 public class HandTuple<set, rank> {
 	public ArrayList<Card> set;

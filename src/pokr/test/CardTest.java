@@ -1,13 +1,13 @@
-package tests;
+package pokr.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import gamefiles.Card;
-import gamefiles.Card.Suit;
-import gamefiles.Card.Value;
+import pokr.game.Card;
+import pokr.game.Card.Suit;
+import pokr.game.Card.Value;
 
 public class CardTest {
 

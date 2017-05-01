@@ -1,10 +1,10 @@
-package gamefiles;
+package pokr.game;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import gamefiles.Card.Suit;
-import gamefiles.Card.Value;
+import pokr.game.Card.Suit;
+import pokr.game.Card.Value;
 
 public class Deck {
 

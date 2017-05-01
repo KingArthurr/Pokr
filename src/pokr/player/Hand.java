@@ -1,9 +1,9 @@
-package players;
+package pokr.player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import gamefiles.Card;
+import pokr.game.Card;
 
 public class Hand {
 	private List<Card> hand;

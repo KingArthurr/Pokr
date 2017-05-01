@@ -1,10 +1,10 @@
-package util;
+package pokr.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import gamefiles.Card;
+import pokr.game.Card;
 
 
 public class SortCards {
